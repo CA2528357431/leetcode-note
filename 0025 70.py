@@ -19,6 +19,8 @@ class Solution:
         '''
 
         # 滚动法
+
+        '''
         p = 1
         la = 1
         cur = 1
@@ -26,3 +28,13 @@ class Solution:
             p+=1
             la,cur = cur,la+cur
         return cur
+        '''
+
+        # 动态规划
+
+        res = [0]*n
+        res[0] = 1
+        res[1] = 1
+        for x in range(2,n):
+            res[x] = res[x-1]+res[x-2]
+        return res[-1]

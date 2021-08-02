@@ -12,3 +12,5 @@ class Solution:
                 r.append(spe)
             res.extend(re)
         return res
+
+# 为了防止改变res，引入copy()
