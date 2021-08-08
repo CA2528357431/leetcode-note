@@ -1,5 +1,7 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
+        # 有确定状态的时候用此方法维护各个状态下的值
+
         '''
         pos = [0]*len(nums)
         neg = [0]*len(nums)
