@@ -1,6 +1,7 @@
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
 
+        '''
         res = [[0]*(len(word1)+1) for _ in range(len(word2)+1)]
 
         for x in range(0,len(word1)+1):
@@ -17,6 +18,7 @@ class Solution:
                     change+=1
                 res[x][y] = min(change,a,b)
         return res[-1][-1]
+        '''
 
     # 最后一步有三种可能
 
@@ -30,3 +32,22 @@ class Solution:
 
     # 向word1改变
     # 匹配word1[:-1]和word2[:-1]
+
+
+
+    # 此题也可滚动优化
+
+        cur = [x for x in range(len(word1)+1)]
+
+        for x in range(1,len(word2)+1):
+            la = cur.copy()
+            cur[0]=x
+            for y in range(1,len(word1)+1):
+                change = la[y-1]
+                a = cur[y-1]+1
+                b = la[y]+1
+                if word1[y-1]!=word2[x-1]:
+                    change+=1
+                cur[y] = min(change,a,b)
+        return cur[-1]
+
