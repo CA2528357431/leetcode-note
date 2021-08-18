@@ -9,6 +9,3 @@ class Solution:
             neo = 10*neo+t
             x = x//10
         return neo==old
-
-sol = Solution()
-print(sol.isPalindrome(1))
