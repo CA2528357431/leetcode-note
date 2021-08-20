@@ -10,6 +10,4 @@ class Solution:
         res += num * "I"
         return res
 
-
-sol = Solution()
-sol.intToRoman(1994)
+    # 把900、400等也当作一个位
