@@ -14,6 +14,7 @@ class Solution:
                 if candidates[i] > tar:
                     break
 
+                # 很重点
                 if i > l and candidates[i] == candidates[i - 1]:
                     continue
                 path.append(candidates[i])
