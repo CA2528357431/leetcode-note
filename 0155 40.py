@@ -1,5 +1,5 @@
 class Solution:
-    def combinationSum2(self, candidates, target: int):
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         path = []
         res = []
         candidates.sort()
@@ -22,7 +22,3 @@ class Solution:
 
         do(path, 0, target)
         return res
-
-sol = Solution()
-x = sol.combinationSum2([10,1,2,7,6,1,5],8)
-print(x)
