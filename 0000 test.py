@@ -1,32 +1,34 @@
-arr = [7,4,5,1,2,3,6,9,8,0,11,-3,5,9]
+class Solution:
+    def searchRange(self, nums, target: int):
+        if len(nums) == 0 or target < nums[0] or target > nums[-1]:
+            return [-1, -1]
 
+        # get r
+        l = 0
+        r = len(nums) - 1
+        while l < r :
+            mid = (l + r + 1) // 2
+            if nums[mid] <= target:
+                l = mid
+            else:
+                r = mid - 1
+        if nums[l]!=target:
+            return [-1,-1]
 
-def quick(l, r):
-    i = l
-    j = r
-    x = arr[l]
-    while i < j:
-        while i < j and arr[j] >= x:
-            j -= 1
-        arr[i] = arr[j]
+        # get l
+        ll = 0
+        rr = len(nums) - 1
+        while ll < rr :
+            mid = (ll + rr) // 2
+            if target <= nums[mid]:
+                rr = mid
+            else:
+                ll = mid + 1
+        if nums[rr]!=target:
+            return [-1,-1]
 
-        while i < j and arr[i] <= x:
-            i += 1
-        arr[j] = arr[i]
-    arr[i] = x
-    return i
+        return [rr, r]
 
-
-def sort(l, r):
-    if l >= r:
-        return
-    mid = quick(l, r)
-    sort(l, mid - 1)
-    sort(mid + 1, r)
-
-
-
-sort(0,len(arr)-1)
-
-print(arr)
-
+sol = Solution()
+x = sol.searchRange([5,7,7,8,8,10],6)
+print(x)
