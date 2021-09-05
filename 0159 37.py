@@ -25,9 +25,10 @@ class Solution:
         def do(x, y):
             if x>8:
 
-                neo = [r.copy() for r in board]
+                for r in board:
+                    res.append(r.copy())
 
-                return neo
+                return
             if board[x][y] == ".":
                 for i in "123456789":
                     if (i not in row[y]) and (i not in line[x]) and (i not in box[x // 3][y // 3]):
@@ -57,13 +58,7 @@ class Solution:
                     y = 0
                     x += 1
                 do(x, y)
-
-
-        x = do(0,0)
-        print("return 的结果")
-        print(x)
-
-        print("do 外的输出")
-        print(board)
-sol = Solution()
-sol.solveSudoku([["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]])
+        do(0,0)
+        for x in range(9):
+            for y in range(9):
+                board[x][y] = res[x][y]
