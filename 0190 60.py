@@ -1,5 +1,5 @@
 class Solution:
-    def getPermutation(self, n, k):
+    def getPermutation(self, n: int, k: int) -> str:
         num = [1] * (n + 1)
         for i in range(1, n + 1):
             num[i] = num[i - 1] * (i)
@@ -32,8 +32,3 @@ class Solution:
 
         do(n)
         return res
-
-
-sol = Solution()
-x = sol.getPermutation(3,3)
-print(x)
