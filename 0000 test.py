@@ -1,39 +1,34 @@
-class Solution:
-    def getPermutation(self, n, k):
-        num = [1] * (n + 1)
-        for i in range(1, n + 1):
-            num[i] = num[i - 1] * (i)
-        used = [False] * n
-        res = ""
-        k -= 1
+class Trie:
+    def __init__(self):
+        self.children = {}
+        self.word = ""
+        self.count = 0
 
+    def insert(self, word):
+        cur = self
+        for c in word:
+            if c not in cur.children:
+                neo = Trie()
+                cur.children[c] = neo
+            cur = cur.children[c]
+            cur.count += 1
+        cur.word = word
 
-        def do(cur):
-            if cur == 0:
+    def pop(self, word):
+        cur = self
+        for c in word:
+            neo = cur.children[c]
+            neo.count -= 1
+            if neo.count == 0:
+                cur.children.pop(c)
                 return
+            cur = neo
+        cur.word = ""
 
-            nonlocal k
-            nonlocal res
-
-            neonum = k // num[cur - 1]+1
-
-            i = 0
-            for ii in range(n):
-                if not used[ii]:
-                    i+=1
-                    if i==neonum:
-                        used[ii] = True
-                        res += str(ii + 1)
-                        break
-            k = k % num[cur - 1]
-
-
-            do(cur - 1)
-
-        do(n)
-        return res
-
-
-sol = Solution()
-x = sol.getPermutation(3,3)
-print(x)
+t = Trie()
+li = ["a","aa"]
+for i in li:
+    t.insert(i)
+for i in li:
+    t.pop(i)
+print(t.children)
