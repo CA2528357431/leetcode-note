@@ -14,17 +14,12 @@ class Solution:
         '''
 
         res = []
-
-        def do(path, i):
-            if i == len(nums):
-                res.append(path.copy())
-                return
-            do(path, i + 1)
-            path.append(nums[i])
-            do(path, i + 1)
-            path.pop()
-
-        do([], 0)
+        def dfs(path, i):
+            res.append(path.copy())
+            for j in range(i, len(nums)):
+                path.append(nums[j])
+                dfs(path, j + 1)
+                path.pop()
+        dfs([], 0)
         return res
-
 
