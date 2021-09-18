@@ -1,34 +1,23 @@
-class Trie:
-    def __init__(self):
-        self.children = {}
-        self.word = ""
-        self.count = 0
+class Solution:
+    def maxTaxiEarnings(self, n: int, rides) -> int:
+        for li in rides:
+            li[2] = li[2] + li[1] - li[0]
+        rides.sort(key=lambda a:a[0])
+        i = len(rides)
+        res = [0]*(n+1)
+        for index in range(n-1,0,-1):
 
-    def insert(self, word):
-        cur = self
-        for c in word:
-            if c not in cur.children:
-                neo = Trie()
-                cur.children[c] = neo
-            cur = cur.children[c]
-            cur.count += 1
-        cur.word = word
+            while rides[i-1][0]>=index and i>0:
+                i-=1
 
-    def pop(self, word):
-        cur = self
-        for c in word:
-            neo = cur.children[c]
-            neo.count -= 1
-            if neo.count == 0:
-                cur.children.pop(c)
-                return
-            cur = neo
-        cur.word = ""
 
-t = Trie()
-li = ["a","aa"]
-for i in li:
-    t.insert(i)
-for i in li:
-    t.pop(i)
-print(t.children)
+            neo = 0
+            for ride in rides[i:]:
+                nn = res[ride[1]]+ride[2]
+                neo = max(nn,neo)
+            res[index] = max(res[index+1],neo)
+
+        return res[1]
+sol = Solution()
+x = sol.maxTaxiEarnings(20,[[1,6,1],[3,10,2],[10,12,3],[11,12,2],[12,15,2],[13,18,1]])
+print(x)
