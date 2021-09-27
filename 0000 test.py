@@ -1,21 +1,38 @@
-import turtle as t
-import random as r
+import time
 
-r.seed(1)
-t.pensize(2)
-t.pencolor('red')
-angles = 6
-points= [[0,0],[50,40],[70,80],[-40,30]]
 
-for i in range(4):
-    x0,y0 = points[i]
-    t.penup()
-    t.goto(points[i][0],points[i][1])
-    t.pendown()
+class Solution:
+    def search(self, nums, target: int) -> bool:
+        n = len(nums)
+        if n==1:
+            return nums[0] == target
 
-    length = r.randint(6, 16)
-    for j in range(angles):
-        t.fd(length)
-        t.back(length)
-        t.right(360 / angles)
-t.done()
+        l = 0
+        while l+1<n-1 and nums[l]<=nums[l+1]:
+            l+=1
+        r = l+1
+        if nums[-1] < target < nums[0] or target > nums[l] or target < nums[r]:
+            return False
+
+        rr = n - 1
+        ll = 0
+        if target <= nums[-1]:
+            ll = r
+        else:
+            rr = l
+
+
+
+        while ll < rr:
+            mid = (ll + rr) // 2
+            if nums[mid] == target:
+                return True
+            elif nums[mid] < target:
+                ll = mid + 1
+            else:
+                rr = mid - 1
+
+        return nums[ll] == target
+sol = Solution()
+x = sol.search([1,1],2)
+print(x)
