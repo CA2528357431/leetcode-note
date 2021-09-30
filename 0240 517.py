@@ -32,6 +32,7 @@ class Solution:
         for i in range(n):
             tol = max(i * ave - passage, 0)
             tor = max((n - i - 1) * ave - (total - passage - machines[i]), 0)
+            # 向左向右输送的个数
             times = max(tol + tor, times)
             passage += machines[i]
 
