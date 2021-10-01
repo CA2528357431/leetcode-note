@@ -1,6 +1,5 @@
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
-        i = 0
 
         A = 0
         B = 0
