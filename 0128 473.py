@@ -14,6 +14,8 @@ class Solution:
             for y in range(x+1,n-2):
                 if y!=x+1 and nums[y]==nums[y-1]:
                     continue
+                # 剪枝
+                # 如果加入该桶等效于加入上一个桶，就跳过
                 if nums[x] + nums[y] + nums[y + 1] + nums[y + 2] > target:
                     break
                 if nums[x] + nums[y] + nums[n - 1] + nums[n - 2] < target:
