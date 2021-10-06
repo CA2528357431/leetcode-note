@@ -7,16 +7,15 @@ class Solution:
         b = None
         c = None
         for n in nums:
+            if n==a or n==b or n==c:
+                continue
             if a is None or n>a:
                 a,b,c = n,a,b
             elif b is None or n>b:
                 b,c = n,b
-            else:
+            elif c is None or n>c:
                 c = n
-        if a==b or b==c:
+        if b is None or c is None:
             return a
         else:
             return c
-sol = Solution()
-x = sol.thirdMax([3,2,1])
-print(x)
