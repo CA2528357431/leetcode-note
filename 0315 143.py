@@ -1,23 +1,26 @@
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def reorderList(self, head: ListNode) -> None:
         """
         Do not return anything, modify head in-place instead.
         """
+        if not head.next:
+            return
+
         pre = ListNode()
         pre.next = head
         slow = pre
         fast = pre
         while fast and fast.next:
-
             slow = slow.next
             fast = fast.next.next
 
         right = slow.next
+        slow.next = None
 
         pr = right
         ne = pr.next
@@ -25,17 +28,14 @@ class Solution:
             neo = ne.next
             ne.next = pr
             pr, ne = ne, neo
+
         right.next = None
         right = pr
 
-        slow.next = None
         left = head
 
-        print(head.val,head.next.val)
-
-
         cur = pre
-        while left and right:
+        while left or right:
             if left and right:
                 nl = left.next
                 nr = right.next
@@ -49,14 +49,6 @@ class Solution:
             elif not right:
                 cur.next = left
                 break
-a = ListNode(1)
-b = ListNode(2)
-c = ListNode(3)
-d = ListNode(4)
-a.next = b
-b.next = c
-c.next = d
 
-sol = Solution()
-sol.reorderList(a)
-print(a.val,a.next.val,a.next.next.val,a.next.next.val)
+        # 找到中点，分为left和right
+        # 将二者混杂
