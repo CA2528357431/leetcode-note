@@ -1058,7 +1058,7 @@
 * 一个字符串数组`arr`和一个整数`k`，请你返回`arr`中第`k`个 独一无二的字符串 
 
 ## 354. 两个最好的不重叠活动
-*
+* `events`中`events[i] = [startTimei, endTimei, valuei]`表示第`i`个活动开始于`startTimei`，结束于`endTimei`，有`valuei`奖励。 **最多** 参加两个时间不重叠的活动，返回最大总奖励
 
 ## 355. 蜡烛之间的盘子
 * 字符串`s`，它只包含字符`'*'`和`'|'`。数组`queries`，其中`queries[i] = [lefti, righti]`表示`s[lefti...righti]`中在两支`'|'`间的`'*'`的数目
