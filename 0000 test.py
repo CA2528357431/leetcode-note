@@ -1,13 +1,13 @@
-def clean(li):
-    while True:
-        for i in range(len(li) - 2):
-            if li[i] == li[i + 1] and li[i + 1] == li[i + 2]:
-                cur = li[i]
-                while i<len(li) and li[i]==cur:
-                    li.pop(i)
-                break
-        else:
-            return
-li = [3,3,1,1,1,3,3,4,5]
-clean(li)
-print(li)
+
+ps = [1,3,6,8,9,10]
+def f(ps,p):
+                l = 0
+                r = len(ps)-1
+                while l<r:
+                    mid = (l+r)//2+1
+                    if p<ps[mid]:
+                        r = mid-1
+                    elif ps[mid]<p:
+                        l = mid
+                print(ps[l])
+f(ps,7)
