@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> int:
+        '''
         def do(cur, tar):
             mid = 0
             if not cur:
@@ -31,3 +32,31 @@ class Solution:
                 stack.append(cur)
                 cur = cur.left
         return res
+        '''
+
+        # 前缀和
+        dic = {}
+        dic[0] = 1
+
+        def dfs(cur, num):
+            if not cur:
+                return 0
+
+            count = 0
+            neo = num + cur.val
+            if neo - targetSum in dic:
+                count += dic[neo - targetSum]
+                # 剪尾
+
+            if neo not in dic:
+                dic[neo] = 0
+
+            dic[neo] += 1
+            l = dfs(cur.left, neo)
+            r = dfs(cur.right, neo)
+            dic[neo] -= 1
+            # 回溯
+
+            return count + l + r
+
+        return dfs(root, 0)
