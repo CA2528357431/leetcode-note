@@ -1,3 +1,3 @@
-li = [250,145,145,145,145]
-for i in li:
-    print("{:8b}".format(i))
+li = {3:1,2:1}
+ll = {2:1,3:1}
+print(li==ll)
