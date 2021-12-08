@@ -6,8 +6,10 @@ class Solution:
         n = len(nums)
 
         res = 0
-        while r<n:
+        while r<n or l<n:
             if cur<target:
+                if r==n:
+                    return res
                 cur+=nums[r]
                 r+=1
             else:
@@ -17,12 +19,4 @@ class Solution:
                     res = min(res,r-l)
                 cur-=nums[l]
                 l+=1
-        while cur>=target:
-            if res==0:
-                res = r-l
-            else:
-                res = min(res,r-l)
-            cur-=nums[l]
-            l+=1
-
         return res
