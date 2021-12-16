@@ -1411,11 +1411,11 @@
 ## 471. 课程表 III
 * 给你一个数组`courses`，其中`courses[i] = [durationi, lastDayi]`表示第`i`门课将会持续上`durationi`天课，并且必须在不晚于`lastDayi`的时候完成。不能同时修读两门及两门以上的课程。 返回你最多可以修读的课程数目
 
-## 472. 
-* 
+## 472. 喧闹和富有
+* 给你一个数组`richer`，其中`richer[i] = [ai, bi]`表示`ai`比`bi`更有钱。另给你一个整数数组`quiet`，其中`quiet[i]`是`i`的安静值。返回一个数组`answer`作为答案，其中`answer[x] = y`的前提是，在所有拥有的钱肯定不少于`x`的人中，`y`是最安静的人
 
-## 473. 
-* 
+## 473. 可见点的最大数目
+* 你的位置是`location`，其中`location = [posx, posy]`表示自己在`(posx, posy)`。给一个点集`points`，其中`points[i] = [xi, yi]`表示点在`(xi,yi)`。你的视野范围的角度用`angle`表示，可以通过自转调整观测角度。返回你能看到的点的最大数目
 
 ## 474. 
 *
