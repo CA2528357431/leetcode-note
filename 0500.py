@@ -1,6 +1,5 @@
 class Solution:
-    def highestRankedKItems(self, grid: List[List[int]], pricing: List[int], start: List[int], k: int) -> List[
-        List[int]]:
+    def highestRankedKItems(self, grid: List[List[int]], pricing: List[int], start: List[int], k: int) -> List[List[int]]:
         cur = [start]
         m = len(grid)
         n = len(grid[0])
