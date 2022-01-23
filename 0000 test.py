@@ -1,3 +1,12 @@
-for i in range(500,700):
-    name = "0"+str(i)+".py"
-    open(name,"w")
+n = 3
+def find(cur, i):
+    if i == n:
+        print(cur)
+        return
+    find(cur, i + 1)
+
+    cur[i] = True
+    find(cur, i + 1)
+    cur[i] = False
+
+find([False]*3,0)
