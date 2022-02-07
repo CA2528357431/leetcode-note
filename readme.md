@@ -1582,8 +1582,8 @@
 ## 528. 设计位集
 * 请你实现`Bitset`类：`Bitset(int size)`用`size`个位初始化`Bitset`，所有位都是`0`；`void fix(int idx)`将下标为`idx`的位上的值更新为`1`；`void unfix(int idx)`将下标为`idx`的位上的值更新为`0`；`void flip()`翻转`Bitset`中每一位上的值；`boolean all()`检查`Bitset`中每一位的值是否都是`1`；`boolean one()`检查`Bitset`中是否至少一位的值是`1`；`int count()`返回`Bitset`中值为`1`的位的总数 ；`String toString()`返回`Bitset`的当前组成情况。
 
-## 529. 
-* 
+## 529. 和为 K 的最少斐波那契数字数目
+* 给你数字`k`，请你返回和为`k`的斐波那契数字的最少数目，其中，每个斐波那契数字都可以被使用多次。
 
 ## 530. 
 * 
