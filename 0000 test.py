@@ -17,5 +17,6 @@ for i in datanames:
         li2.append(num)
 li1.sort()
 li2.sort()
-print(li1)
-print(li2)
+print(len(li2)-1)
+for x in li2:
+    print(x)
