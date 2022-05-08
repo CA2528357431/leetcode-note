@@ -1,11 +1,6 @@
 import os
 
 path=r'E:\leetcode'
-files=os.listdir(path)
-neo = {}
-for s in files:
-    ss = s[5:-3]
-    if ss.isdecimal():
-        if ss in neo:
-            print(s)
-        neo[ss]=0
+for i in range(700,800):
+    s = path+r"\0"+str(i)+".py"
+    open(s,"w")
