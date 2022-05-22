@@ -1,3 +1,5 @@
+# 无意义的题
+
 class Solution:
     def isValid(self, code: str) -> bool:
         tags = []
