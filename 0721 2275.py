@@ -10,4 +10,6 @@ class Solution:
                     cur += 1
             res = max(res, cur)
 
+        # https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero/solution/c-by-xiao-zhu-xin-meng-nrm7/
+
         return res
