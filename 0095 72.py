@@ -20,22 +20,8 @@ class Solution:
         return res[-1][-1]
         '''
 
-    # 最后一步有三种可能
 
-    # 向word1插入
-    # 插入的是word2最后一位（插入别的也行，但不好思考）
-    # 匹配word1和word2[:-1]
-
-    # 向word1删除
-    # 删除的是word1最后一位（删除别的也行，但不好思考）
-    # 匹配word1[:-1]和word2
-
-    # 向word1改变
-    # 匹配word1[:-1]和word2[:-1]
-
-
-
-    # 此题也可滚动优化
+        # 此题也可滚动优化
 
         cur = [x for x in range(len(word1)+1)]
 
@@ -51,3 +37,15 @@ class Solution:
                 cur[y] = min(change,a,b)
         return cur[-1]
 
+        # 最后一步有三种可能
+
+        # 向word1插入
+        # 插入的是word2最后一位（插入别的也行，但不好思考）
+        # 匹配word1和word2[:-1]
+
+        # 向word1删除
+        # 删除的是word1最后一位（删除别的也行，但不好思考）
+        # 匹配word1[:-1]和word2
+
+        # 向word1改变
+        # 匹配word1[:-1]和word2[:-1]

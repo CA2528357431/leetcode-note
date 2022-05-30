@@ -137,7 +137,6 @@ class Solution:
                         if judge:
                             return
 
-
                         board[x][y] = "."
 
                         line[x].remove(i)

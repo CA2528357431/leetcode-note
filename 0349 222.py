@@ -38,6 +38,5 @@ class Solution:
         if layer == 1:
             return 1
         else:
-            print(res)
             res += 2 ** (layer - 1) - 1
             return res
