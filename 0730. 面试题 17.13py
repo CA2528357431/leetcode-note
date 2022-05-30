@@ -1,0 +1,26 @@
+class Solution:
+    def respace(self, dictionary: List[str], sentence: str) -> int:
+        tree = {}
+        for w in dictionary:
+            cur = tree
+            for c in w[::-1]:
+                if c not in cur:
+                    cur[c] = {}
+                cur = cur[c]
+            cur[""] = None
+        n = len(sentence)
+        dp = [0]*(n+1)
+
+        for i in range(1,n+1):
+            dp[i] = dp[i-1]+1
+            ind = i
+            cur = tree
+            while ind>0 and cur:
+                c = sentence[ind-1]
+                if c not in cur:
+                    break
+                cur = cur[c]
+                ind-=1
+                if "" in cur:
+                    dp[i] = min(dp[i],dp[ind])
+        return dp[-1]
