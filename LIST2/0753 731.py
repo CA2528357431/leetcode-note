@@ -1,7 +1,9 @@
+from sortedcontainers import SortedDict
+
 class MyCalendarTwo:
 
     def __init__(self):
-        self.dic = SortedList()
+        self.dic = SortedDict()
 
     def book(self, start: int, end: int) -> int:
         self.dic[start] = self.dic.get(start, 0) + 1
