@@ -19,3 +19,5 @@ class Solution:
             res.append(str(use[small]))
             use.pop(small)
         return "".join(res)
+
+    # 只有确定更小的数字算作更小
